@@ -7,6 +7,7 @@ import { useMapElement } from 'react-leaflet/types/MapContainer';
 
 const OverlappingMap = () => {
 
+    const map = useMap();
 
     //const mapRef = useRef();
     // const mapRef = useMapEvents({
@@ -21,7 +22,7 @@ const OverlappingMap = () => {
     const [fillColorMap, setFillColorMap] = useState('green')
     const [outerColorMap, setOuterColorMap] = useState('#0c53a4')
     const [innerColorMap, setInnerColorMap] = useState('#aa0021')
-    
+
     const center: LatLngTuple = [51.505, -0.09]
     const rectangle: LatLngTuple[] = [
         [51.49, -0.08],
@@ -29,7 +30,7 @@ const OverlappingMap = () => {
     ]
 
     return (
-        <MapContainer center={center} className="leafletmap" zoom={15} scrollWheelZoom={false}>
+       
             <LayersControl position="topright">
                 <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
                     <TileLayer
@@ -88,9 +89,12 @@ const OverlappingMap = () => {
                             <Circle
                                 eventHandlers={{
                                     click: (e) => {
-                                        console.log('zoom coordinates', e.target)
-
-                                        //map.setView()
+                                        console.log('zoom coordinatessssssssssss', e.target)
+                                        
+                                        map.setView(
+                                            e.target._latlng,
+                                            17
+                                          );
                                     },
                                     mouseover: (e) => {
                                         setFillColorMap('red')
@@ -102,6 +106,7 @@ const OverlappingMap = () => {
                                 center={[51.51, -0.08]}
                                 pathOptions={{ color: 'green', fillColor: fillColorMap }}
                                 radius={100}
+                                
 
                             />
                         </LayerGroup>
@@ -115,7 +120,7 @@ const OverlappingMap = () => {
                     </FeatureGroup>
                 </LayersControl.Overlay>
             </LayersControl>
-        </MapContainer>
+        
     )
 }
 export default OverlappingMap

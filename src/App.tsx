@@ -1,11 +1,10 @@
 import React from 'react';
-import { LatLng } from "leaflet"
+import { LatLng, LatLngTuple } from "leaflet"
 import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet'
 import './App.css';
 import LeafletMap from './LeafletMap';
 import OverlappingMap from './OverlappingMap';
 
-const center = [51.505, -0.09]
 
 const polyline = [
   [51.505, -0.09],
@@ -56,10 +55,10 @@ const position = new LatLng(51.505, -0.09);
 const hollywoodStudiosPolygon = [
   [
     new LatLng(28.35390453844, -81.56443119049),
-    new LatLng(28.35390453844, -81.55619144439 ),
-    new LatLng( 28.35983376526, -81.55619144439 ),
-    new LatLng( 28.35983376526, -81.56443119049 ),
-    new LatLng( 28.35390453844, -81.56443119049 ),
+    new LatLng(28.35390453844, -81.55619144439),
+    new LatLng(28.35983376526, -81.55619144439),
+    new LatLng(28.35983376526, -81.56443119049),
+    new LatLng(28.35390453844, -81.56443119049),
   ]
 ];
 
@@ -79,10 +78,12 @@ const limeOptions = { color: 'lime' }
 const purpleOptions = { color: 'purple' }
 const redOptions = { color: 'red' }
 
+const center: LatLngTuple = [51.505, -0.09]
+
 function App() {
   return (
     <>
-    {/* <MapContainer center={[51.505, -0.09]} className="leafletmap" zoom={13} scrollWheelZoom={false}>
+      {/* <MapContainer center={[51.505, -0.09]} className="leafletmap" zoom={13} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -94,8 +95,11 @@ function App() {
       </Marker>
       <Polygon color="blue" positions={hollywoodStudiosPolygon} />
     </MapContainer> */}
-    {/* <LeafletMap /> */}
-    <OverlappingMap />
+      {/* <LeafletMap /> */}
+      <MapContainer center={center} className="leafletmap" zoom={15} scrollWheelZoom={false}>
+        <OverlappingMap />
+      </MapContainer>
+
     </>
   );
 }
