@@ -6,7 +6,7 @@ name: Expense_Tracker_App
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -25,12 +25,12 @@ jobs:
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta 
       with: 
-        node-version: 12.0.0
+        node-version: 16.0.0
 
     # - name: install create-react 
     #   run : npm install -g create-react-app 
     # - name: create basic app  
-    #   run:  create-react-app react-basic
+    #   run:  create-react-app react-basic --template typescript
     - name: install react and dependencies 
       run:  npm install 
     - name: build the project
