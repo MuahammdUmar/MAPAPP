@@ -8,17 +8,6 @@ import { useMapElement } from 'react-leaflet/types/MapContainer';
 const OverlappingMap = () => {
 
     const map = useMap();
-
-    //const mapRef = useRef();
-    // const mapRef = useMapEvents({
-    //     click() {
-    //         mapRef.locate()
-    //       },
-    //       locationfound(e) {
-    //         //setPosition(e.latlng)
-    //         mapRef.flyTo(e.latlng, mapRef.getZoom())
-    //       },
-    // })
     const [fillColorMap, setFillColorMap] = useState('green')
     const [outerColorMap, setOuterColorMap] = useState('#0c53a4')
     const [innerColorMap, setInnerColorMap] = useState('#aa0021')

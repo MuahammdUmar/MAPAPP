@@ -6,17 +6,6 @@ import { LatLng } from "leaflet"
 
 const defaultLatLng: LatLngTuple = [48.865572, 2.283523];
 const zoom: number = 8;
-
-// const hollywoodStudiosPolygon = [
-//     [
-//       new LatLng(28.35390453844, -81.56443119049),
-//       new LatLng(28.35390453844, -81.55619144439 ),
-//       new LatLng( 28.35983376526, -81.55619144439 ),
-//       new LatLng( 28.35983376526, -81.56443119049 ),
-//       new LatLng( 28.35390453844, -81.56443119049 ),
-//     ]
-//   ];
-
 const hollywoodStudiosPolygon: LatLngTuple[][] = [
   [
     [28.35390453844, -81.56443119049],
@@ -48,7 +37,7 @@ const rectangle: LatLngTuple[] = [
     [51.0, -0.04],
     [50.1, -0.02],
   ]
-//const rectangle: LatLngTuple = [51.49, -0.08]
+
     
   
 const blackOptions = { color: 'black' }
