@@ -3,6 +3,7 @@ import { LatLng } from "leaflet"
 import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet'
 import './App.css';
 import LeafletMap from './LeafletMap';
+import OverlappingMap from './OverlappingMap';
 
 const center = [51.505, -0.09]
 
@@ -93,7 +94,8 @@ function App() {
       </Marker>
       <Polygon color="blue" positions={hollywoodStudiosPolygon} />
     </MapContainer> */}
-    <LeafletMap />
+    {/* <LeafletMap /> */}
+    <OverlappingMap />
     </>
   );
 }
