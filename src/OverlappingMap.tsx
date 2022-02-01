@@ -1,16 +1,33 @@
-import React from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, LayersControl, LayerGroup, FeatureGroup, Circle } from 'react-leaflet';
+import React, { useRef, useState } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, LayersControl, LayerGroup, FeatureGroup, Circle, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import { LatLngBounds, LatLngTuple, } from 'leaflet';
+import { useMapElement } from 'react-leaflet/types/MapContainer';
 
 
 
 const OverlappingMap = () => {
 
+
+    //const mapRef = useRef();
+    // const mapRef = useMapEvents({
+    //     click() {
+    //         mapRef.locate()
+    //       },
+    //       locationfound(e) {
+    //         //setPosition(e.latlng)
+    //         mapRef.flyTo(e.latlng, mapRef.getZoom())
+    //       },
+    // })
+    const [fillColorMap, setFillColorMap] = useState('green')
+    const [outerColorMap, setOuterColorMap] = useState('#0c53a4')
+    const [innerColorMap, setInnerColorMap] = useState('#aa0021')
+    
     const center: LatLngTuple = [51.505, -0.09]
     const rectangle: LatLngTuple[] = [
         [51.49, -0.08],
         [51.5, -0.06],
     ]
+
     return (
         <MapContainer center={center} className="leafletmap" zoom={15} scrollWheelZoom={false}>
             <LayersControl position="topright">
@@ -36,21 +53,56 @@ const OverlappingMap = () => {
                 <LayersControl.Overlay checked name="Layer group with circles">
                     <LayerGroup>
                         <Circle
+                            eventHandlers={{
+                                mouseover: (e) => {
+                                    setOuterColorMap('#378df0')
+
+                                },
+                                mouseout: () => {
+                                    setOuterColorMap('#0c53a4')
+                                },
+                            }}
                             center={center}
-                            pathOptions={{ fillColor: 'blue' }}
+                            pathOptions={{ fillColor: outerColorMap }}
                             radius={200}
-                        />
-                        <Circle
-                            center={center}
-                            pathOptions={{ fillColor: 'red' }}
-                            radius={100}
-                            stroke={false}
                         />
                         <LayerGroup>
                             <Circle
-                                center={[51.51, -0.08]}
-                                pathOptions={{ color: 'green', fillColor: 'green' }}
+                                eventHandlers={{
+                                    mouseover: (e) => {
+                                        setInnerColorMap('black')
+
+                                    },
+                                    mouseout: () => {
+                                        setInnerColorMap('#aa0021')
+                                    },
+                                }}
+                                center={center}
+                                pathOptions={{ fillColor: innerColorMap }}
                                 radius={100}
+                                stroke={false}
+                            />
+                        </LayerGroup>
+
+                        <LayerGroup>
+                            <Circle
+                                eventHandlers={{
+                                    click: (e) => {
+                                        console.log('zoom coordinates', e.target)
+
+                                        //map.setView()
+                                    },
+                                    mouseover: (e) => {
+                                        setFillColorMap('red')
+                                    },
+                                    mouseout: () => {
+                                        setFillColorMap('green')
+                                    },
+                                }}
+                                center={[51.51, -0.08]}
+                                pathOptions={{ color: 'green', fillColor: fillColorMap }}
+                                radius={100}
+
                             />
                         </LayerGroup>
                     </LayerGroup>
