@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, LayersControl, LayerGroup, FeatureGroup, Circle, useMap, useMapEvent, useMapEvents, Tooltip } from 'react-leaflet';
 import { LatLngBounds, LatLngTuple, } from 'leaflet';
+import { useMapElement } from 'react-leaflet/types/MapContainer';
 
 
 
-const HeatedMaps = () => {
+const OverlappingMap = () => {
 
     const map = useMap();
     const [fillColorMap, setFillColorMap] = useState('green')
@@ -131,7 +132,7 @@ const HeatedMaps = () => {
     }
 
     return (
-        <>
+
         <LayersControl position="topright">
             <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
                 <TileLayer
@@ -176,7 +177,7 @@ const HeatedMaps = () => {
             </LayersControl.Overlay>
 
         </LayersControl>
-        </>                   
+
     )
 }
-export default HeatedMaps
+export default OverlappingMap
