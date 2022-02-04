@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, LayersControl, LayerGroup, FeatureGroup, Circle, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import { LatLngBounds, LatLngTuple, } from 'leaflet';
-import { useMapElement } from 'react-leaflet/types/MapContainer';
 
 
 
@@ -19,7 +18,7 @@ const OverlappingMap = () => {
     ]
 
     return (
-       
+        <>
             <LayersControl position="topright">
                 <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
                     <TileLayer
@@ -79,11 +78,11 @@ const OverlappingMap = () => {
                                 eventHandlers={{
                                     click: (e) => {
                                         console.log('zoom coordinatessssssssssss', e.target)
-                                        
+
                                         map.setView(
                                             e.target._latlng,
                                             17
-                                          );
+                                        );
                                     },
                                     mouseover: (e) => {
                                         setFillColorMap('red')
@@ -95,8 +94,6 @@ const OverlappingMap = () => {
                                 center={[51.51, -0.08]}
                                 pathOptions={{ color: 'green', fillColor: fillColorMap }}
                                 radius={100}
-                                
-
                             />
                         </LayerGroup>
                     </LayerGroup>
@@ -109,7 +106,7 @@ const OverlappingMap = () => {
                     </FeatureGroup>
                 </LayersControl.Overlay>
             </LayersControl>
-        
+        </>
     )
 }
 export default OverlappingMap

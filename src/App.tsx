@@ -4,16 +4,18 @@ import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet'
 import './App.css';
 import LeafletMap from './LeafletMap';
 import OverlappingMap from './OverlappingMap';
+import HeatedMaps from './HeatedMaps';
 
 
-const center: LatLngTuple = [51.505, -0.09]
+const center: LatLngTuple = [60.2235299884319,24.94705001539827]
 
 function App() {
   return (
     <>
     
-      <MapContainer center={center} className="leafletmap" zoom={15} scrollWheelZoom={false}>
-        <OverlappingMap />
+      <MapContainer center={center} className="leafletmap" zoom={12} scrollWheelZoom={false}>
+        {/* <OverlappingMap /> */}
+        <HeatedMaps />
       </MapContainer>
 
     </>
