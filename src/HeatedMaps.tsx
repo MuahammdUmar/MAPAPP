@@ -132,7 +132,7 @@ const OverlappingMap = () => {
     }
 
     return (
-
+        <>
         <LayersControl position="topright">
             <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
                 <TileLayer
@@ -177,7 +177,7 @@ const OverlappingMap = () => {
             </LayersControl.Overlay>
 
         </LayersControl>
-
+        </>   
     )
 }
 export default OverlappingMap
