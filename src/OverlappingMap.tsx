@@ -161,7 +161,7 @@ const OverlappingMap = () => {
                                     map.setView(
                                         //e.target._latlngs[0][0],
                                         e.latlng,
-                                        17
+                                        14
                                     );
                                 },
                                 mouseover: (e) => {
