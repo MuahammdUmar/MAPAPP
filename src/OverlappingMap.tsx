@@ -159,8 +159,9 @@ const OverlappingMap = () => {
                                     ///console.log('zoom coordinatessssssssssss', e.target._latlngs)
 
                                     map.setView(
-                                        e.target._latlngs[0][0],
-                                        17
+                                        //e.target._latlngs[0][0],
+                                        e.latlng,
+                                        15
                                     );
                                 },
                                 mouseover: (e) => {
