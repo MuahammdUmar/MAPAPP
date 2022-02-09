@@ -1,19 +1,18 @@
 import React from 'react';
-import { LatLng, LatLngTuple } from "leaflet"
-import { MapContainer, TileLayer, Marker, Popup, Polygon } from 'react-leaflet'
+import { LatLngTuple } from "leaflet"
+import { MapContainer } from 'react-leaflet'
 import './App.css';
-import LeafletMap from './LeafletMap';
-import OverlappingMap from './OverlappingMap';
+import HeatedMaps from './HeatedMaps';
 
 
-const center: LatLngTuple = [60.2235299884319,24.94705001539827]
+const center: LatLngTuple = [60.17870038288135, 24.9444580078125]
 
 function App() {
   return (
     <>
-    
+      {/* Main Map Container */}
       <MapContainer center={center} className="leafletmap" zoom={12} scrollWheelZoom={false}>
-        <OverlappingMap />
+        <HeatedMaps />
       </MapContainer>
 
     </>
