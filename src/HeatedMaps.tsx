@@ -102,7 +102,7 @@ const OverlappingMap = () => {
 
         return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
     }
-    // console.log(rectangle1)
+   
 
     let rec2 = [];
     rectangle1.forEach(a => {
@@ -155,9 +155,6 @@ const OverlappingMap = () => {
                             bounds={item}
                             eventHandlers={{
                                 click: (e) => {
-                                    //debugger
-                                    ///console.log('zoom coordinatessssssssssss', e.target._latlngs)
-
                                     map.setView(
                                         e.target._latlngs[0][0],
                                         17
@@ -165,7 +162,6 @@ const OverlappingMap = () => {
                                 },
                                 mouseover: (e) => {
                                     setOuterColorMap(index)
-
                                 },
                                 mouseout: () => {
                                     setOuterColorMap(-1)

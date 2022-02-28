@@ -3,7 +3,7 @@ import { TileLayer, Rectangle, LayersControl, LayerGroup, useMap,} from 'react-l
 import { LatLngTuple, } from 'leaflet';
 
 //  Api responce data 
-import { allCoordinates } from './ApiResponceData';
+import { allCoordinates } from './ApiResponseData';
 
 
 
